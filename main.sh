@@ -29,12 +29,11 @@ function saisieClavier(){
 }
 
 function auditGeneral(){
-    bash ./audit.sh
+    bash ./audit.sh "general"
 }
 function auditSpecifique(){
     read -p "Entrez l'ID de la recommandation à auditer : " recId
-    echo "------ Audit spécifique pour la recommandation ID: $recId ------"
-    echo "------ Audit spécifique terminé ------"
+    bash ./audit.sh "specifique" "$recId"
 }
 
 function obtenirRecommandationsParCategorie(){
