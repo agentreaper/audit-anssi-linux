@@ -6,3 +6,16 @@ Ce repo contient un outil d'audit pour les systèmes d'exploitation GNU/Linux se
 gh repo clone agentreaper/audit-anssi-linux
 cd audit anssi-linux
 ```
+
+## Incrémentation
+### Structure du json
+La structure de base est la suivante
+```json
+[
+    {
+    "id": "",
+    "niveau": 0,
+    "categorie": ""
+    }
+]
+```
