@@ -1,10 +1,13 @@
+jsonFile="${1:-manual.json}"
+
 function afficherRecommandations() {
     clear
     echo "------ Affichage de toutes les recommandations ------"
-    jsonData=$( cat manual.json )
+    jsonData=$( cat "$jsonFile" )
     for row in $(echo $jsonData | jq -r '.[] | @base64'); do
         echo "ID de la recommandation : $(echo "${row}" | base64 -di | jq -r '.id')"
         echo "Niveau : $(echo "${row}" | base64 -di | jq -r '.niveau')"
+        echo "Catégorie : $(echo "${row}" | base64 -di | jq -r '.categorie')"
         echo "-----------------------------"
     done
 }
@@ -24,6 +27,7 @@ function saisieClavier(){
         3) obtenirRecommandationsParCategorie ;;
         4) auditGeneral ;;
         5) auditSpecifique ;;
+        6) exit 0 ;;
         *) echo "Entrée invalide. Veuillez réessayer." ;;
     esac
 }
@@ -50,9 +54,10 @@ function obtenirRecommandationsParCategorie(){
     esac
     clear
     echo "------ Recommandations pour la catégorie $categorieTexte ------"
-    jsonData=$( cat manual.json )
+    jsonData=$( cat "$jsonFile" )
     for row in $(echo $jsonData | jq -r --arg cat "$categorieTexte" '.[] | select(.categorie == $cat) | @base64'); do
         echo "ID de la recommandation : $(echo "${row}" | base64 -di | jq -r '.id')"
+        echo "Niveau : $(echo "${row}" | base64 -di | jq -r '.niveau')"
         echo "Catégorie : $(echo "${row}" | base64 -di | jq -r '.categorie')"
         echo "-----------------------------"
     done
@@ -62,10 +67,11 @@ function obtenirRecommandationsParNiveau(){
     read -p "Entrez le niveau de sécurité (1, 2, 3 ou 4) : " niveau
     clear
     echo "------ Recommandations pour le niveau $niveau ------"
-    jsonData=$( cat manual.json )
+    jsonData=$( cat "$jsonFile" )
     for row in $(echo $jsonData | jq -r --arg lvl "$niveau" '.[] | select(.niveau == ($lvl | tonumber)) | @base64'); do
         echo "ID de la recommandation : $(echo "${row}" | base64 -di | jq -r '.id')"
         echo "Niveau : $(echo "${row}" | base64 -di | jq -r '.niveau')"
+        echo "Catégorie : $(echo "${row}" | base64 -di | jq -r '.categorie')"
         echo "-----------------------------"
     done
 }
