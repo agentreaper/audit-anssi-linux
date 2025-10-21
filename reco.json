@@ -33,6 +33,20 @@
         "categorie": "manuelle",
         "nom" :"Configurer un mot de passe pour le chargeur de démarrage",
         "description" : ""
+    },
+    {
+        "id": 6,
+        "niveau": 2,
+        "categorie": "manuelle",
+        "nom" :"Protéger les paramètres du cmd noyau et l'initramfs",
+        "description" : ""
+    },
+    {
+        "id": 7,
+        "niveau": 3,
+        "categorie": "automatisée",
+        "nom" :"Activer l'IOMMU",
+        "description" : "L'OMMU (Input/Output Memory Management Unit) est un service permettant de protéger la mémoire du systèmes vis-a-vis d'accès non souhaité par des périphériques. Sa conception est imparfaite et son efficacité dépend du système hôte mais il permet de limiter les risques d'accès mémoire non souhaité."
     }
 
 ]
