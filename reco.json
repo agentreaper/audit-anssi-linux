@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "niveau": 3,
+        "categorie": "manuelle",
+        "nom" :"Choisir et configurer son matériel",
+        "description" : ""
+    },
+    {
+        "id": 2,
+        "niveau": 2,
+        "categorie": "manuelle",
+        "nom" :"Configurer le BIOS/UEFI",
+        "description" : ""
+    },
+    {
+        "id": 3,
+        "niveau": 2,
+        "categorie": "manuelle",
+        "nom" :"Activer le Secure Boot",
+        "description" : ""
+    },
+    {
+        "id": 4,
+        "niveau": 2,
+        "categorie": "manuelle",
+        "nom" :"Remplacer les clés préchargées",
+        "description" : ""
+    },
+    {
+        "id": 5,
+        "niveau": 2,
+        "categorie": "manuelle",
+        "nom" :"Configurer un mot de passe pour le chargeur de démarrage",
+        "description" : ""
+    }
+
+]

@@ -15,7 +15,9 @@ La structure de base est la suivante
     {
     "id": "",
     "niveau": 0,
-    "categorie": ""
+    "categorie": "", 
+    "nom" : "",
+    "description": ""
     }
 ]
 ```
