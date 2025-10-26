@@ -47,6 +47,14 @@
         "categorie": "automatisée",
         "nom" :"Activer l'IOMMU",
         "description" : "L'OMMU (Input/Output Memory Management Unit) est un service permettant de protéger la mémoire du systèmes vis-a-vis d'accès non souhaité par des périphériques. Sa conception est imparfaite et son efficacité dépend du système hôte mais il permet de limiter les risques d'accès mémoire non souhaité."
+    },
+    {
+        "id": 8.1,
+        "niveau": 2,
+        "nom": "activer les contremesures l1tf",
+        "categorie": "automatisée",
+        "description": "Enormément de processeurs intels présentent la faille L1TF (L1 Terminal Fault) qui permet à un attaquant d'accéder au contenu du cache L1 du processeur.",
+        "impact_performances": "Cette option désactive le symetric multithreading, ce qui baisse beaucoup les performances du système."
     }
 
 ]
