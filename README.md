@@ -13,11 +13,11 @@ La structure de base est la suivante
 ```json
 [
     {
-    "id": "",
-    "niveau": 0,
-    "categorie": "", 
-    "nom" : "",
-    "description": ""
+        "id": 0,
+        "niveau": 0,
+        "categorie": "", 
+        "nom" : "",
+        "description": ""
     }
 ]
 ```
@@ -26,5 +26,7 @@ La structure de base est la suivante
 Le nom par défaut du CSV est `audit.csv`. Le délimiteur est le point virgule `;`
 Les colonnes sont les suivantes:
 ```csv
-nom,description,niveau,succes,commentaire
+id;nom;description;niveau;succes;commentaire
 ``` 
+
+note pour plus tard: permettre de rajouter des données au CSV après le rapport à froid. quitte à retirer les commantaires par défaut
