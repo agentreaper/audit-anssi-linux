@@ -103,7 +103,23 @@
         "niveau": 2,
         "categorie": "automatisée", 
         "nom" : "Force l'utilisation du microarchitectural data sampling",
-        "description": "Le MDS est une contremesure vis-a-vis de plusieurs failles dans l'architecture des processeurs intel"
+        "description": "Le MDS est une contremesure vis-a-vis de plusieurs failles dans l'architecture des processeurs intel",
+        "impact_performances":"Cette recommandation est similaire à la 8.1, en terme de risque de perte de performances"
+    },
+    {
+        "id": 8.9,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver les Machine Check Exceptions (MCE)",
+        "description": "Désactiver les MCE revient à générér un kernel panic dès qu'une erreur non corrigée est detectée par le machine check. Par défaut, un simple signal d'anomalie SIGBUS est envoyé. Cette configuration bloque donc les processus malveillants dans de nombreux cas"
+    },
+    {
+        "id": 8.10,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Activer la Page Allocator Randomization",
+        "description": "La Page Allocator Randomization rend l'allocation des pages moins prévisibles, ce qui limite le prélèvement de données",
+        "impact_performances": "Les machines avec pas ou peu de cache sont susceptibles de voir leurs performances baisser"
     }
 
 ]
