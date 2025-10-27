@@ -62,6 +62,20 @@
         "nom": "activer les contremesures page poisonning",
         "categorie":"automatisée",
         "description": "Cette option activr l'empoisonnement des pages de l'allocateur. Lorsqu'une page de RAM est libérée, le kernel rajoute des motifs et les revérifie lors de la prochaine allocation. Cette vérification permet de lutter contre les fuites d'informations"
+    },
+    {
+        "id": 8.3,
+        "niveau": 2,
+        "nom": "Forcer l'utilisation de l'isolation des tables de pages",
+        "categorie":"automatisée",
+        "description": "L'isolation des tables de pages est une contremesure mise en place pour lutter contre la faille meltdown, qui exploite l'éxecution spéculative des processeurs post 1995"
+    },
+    {
+        "id": 8.4,
+        "niveau": 2,
+        "nom": "desactiver la fusion de la mémoire dynamique",
+        "description": "Par défaut, les les tables de mémoire de même taille sont autorisées à fusionner. Cette possibilité expose à la faille heap overflow",
+        "categorie":"automatisée"
     }
 
 ]
