@@ -26,5 +26,5 @@ La structure de base est la suivante
 Le nom par défaut du CSV est `audit.csv`. Le délimiteur est le point virgule `;`
 Les colonnes sont les suivantes:
 ```csv
-id,nom,description,niveau
+nom,description,niveau,succes,commentaire
 ``` 
