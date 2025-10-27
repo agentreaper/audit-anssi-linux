@@ -1,14 +1,14 @@
 #!/bin/bash
-check_slub_debug() {
-    grep -qE '\b(spectre_v2=on)\b' /proc/cmdline
+check_spec_store_bypass() {
+    grep -qE '\b(spec_store_bypass=seccomp)\b' /proc/cmdline
 }
 source traitement_csv.sh
-if check_slub_debug; then
-    echo "Les contremesures spectre V2 sont activées" >&2
+if check_spec_store_bypass; then
+    echo "Les contremesures spectre V4 sont activées" >&2
     ajouter_recommandation $1 8.6 "tout va bien" "true" $2
     exit 0
 else
-    echo "les contremesures spectre V2 ne sont pas activées" >&2
+    echo "les contremesures spectre V4 ne sont pas activées" >&2
     ajouter_recommandation $1 8.6 "l'option n'est pas activée" "false" $2
     exit 1
 fi
