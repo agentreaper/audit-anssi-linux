@@ -55,6 +55,13 @@
         "categorie": "automatisée",
         "description": "Enormément de processeurs intels présentent la faille L1TF (L1 Terminal Fault) qui permet à un attaquant d'accéder au contenu du cache L1 du processeur.",
         "impact_performances": "Cette option désactive le symetric multithreading, ce qui baisse beaucoup les performances du système."
+    },
+    {
+        "id": 8.2,
+        "niveau": 2,
+        "nom": "activer les contremesures page poisonning",
+        "categorie":"automatisée",
+        "description": "Cette option activr l'empoisonnement des pages de l'allocateur. Lorsqu'une page de RAM est libérée, le kernel rajoute des motifs et les revérifie lors de la prochaine allocation. Cette vérification permet de lutter contre les fuites d'informations"
     }
 
 ]
