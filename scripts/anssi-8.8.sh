@@ -1,9 +1,9 @@
 #!/bin/bash
-check_slub_debug() {
+check_MDS() {
     grep -qE '\b(mds=full,nomst|mds=nomst,full)\b' /proc/cmdline
 }
 source traitement_csv.sh
-if check_slub_debug; then
+if check_MDS; then
     echo "Le MDS est activé" >&2
     ajouter_recommandation $1 8.8 "tout va bien" "true" $2
     exit 0

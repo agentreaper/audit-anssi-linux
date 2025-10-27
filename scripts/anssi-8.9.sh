@@ -3,7 +3,7 @@ check_mce() {
     grep -qE '\b(mce=0)\b' /proc/cmdline
 }
 source traitement_csv.sh
-if check_slub_debug; then
+if check_mce; then
     echo "Le MCE est correctement configuré" >&2
     ajouter_recommandation $1 8.9 "tout va bien" "true" $2
     exit 0

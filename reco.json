@@ -120,6 +120,13 @@
         "nom" : "Activer la Page Allocator Randomization",
         "description": "La Page Allocator Randomization rend l'allocation des pages moins prévisibles, ce qui limite le prélèvement de données",
         "impact_performances": "Les machines avec pas ou peu de cache sont susceptibles de voir leurs performances baisser"
+    },
+    {
+        "id": 8.11,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Fixer le HWRNG à 500",
+        "description": "Cette opération a pour effet d'augmenter la confiance dans le générateur de nombre pseudos-aléatoires. Les performances  du système et des outils cryptographiques s'en voient augmentées"
     }
 
 ]
