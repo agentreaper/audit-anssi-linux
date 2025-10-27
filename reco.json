@@ -76,6 +76,12 @@
         "nom": "desactiver la fusion de la mémoire dynamique",
         "description": "Par défaut, les les tables de mémoire de même taille sont autorisées à fusionner. Cette possibilité expose à la faille heap overflow",
         "categorie":"automatisée"
+    },
+    {
+        "id": 8.5,
+        "niveau": 2,
+        "nom": "Actver le renforcement de la mémoire dynamique",
+        "description": "Dans la continuité de la recommandation 8.4, il est important d'activer les tests de cohérence des métadonnées, l'ajout de la zone rouge sur chaque objet et le poisonning des objets et du padding"
     }
 
 ]
