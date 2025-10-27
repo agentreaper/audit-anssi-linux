@@ -87,8 +87,23 @@
     {
         "id": 8.6,
         "niveau": 2,
-        "nom": "Activer les contremesures spectre V2",
+        "categorie":"automatisée",
+        "nom": "Activer les contremesures spectre V4 (speculative store bypass)",
         "description": "De nombreux processeurs intels disposent d'un défaut dans leur architecture permettant l'exploitation de la faille spectre V2, qui utilise l'execution spéculative à de mauvaises fins"
+    },
+    {
+        "id": 8.7,
+        "niveau":2,
+        "categorie":"automatisée",
+        "nom":"Activer les contremesures spectre V2 (branch target injection)",
+        "description": "De nombreux processeurs intels disposent d'un défaut dans leur architecture permettant l'exploitation de la faille spectre V2, qui utilise l'execution spéculative à de mauvaises fins"
+    },
+    {
+        "id": 8.8,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Force l'utilisation du microarchitectural data sampling",
+        "description": "Le MDS est une contremesure vis-a-vis de plusieurs failles dans l'architecture des processeurs intel"
     }
 
 ]
