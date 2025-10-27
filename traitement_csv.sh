@@ -1,7 +1,7 @@
 #!/bin/bash
 function check_headers(){
     IFS=';' read -a var < "$1"
-    expected_headers=("nom" "description" "niveau" "succes" "commentaire")
+    expected_headers=("id" "nom" "description" "niveau" "succes" "commentaire")
     for i in "${!expected_headers[@]}"; do
         if [ "${var[i]}" != "${expected_headers[i]}" ]; then
             echo "headers incorrects sur la colonne $((i+1)): souhaité '${expected_headers[i]}', obtenu '${var[i]}'" >&2
@@ -23,7 +23,7 @@ function ajouter_recommandation(){
             nom=$(printf '%s' "$rowformatted" | jq -r '.nom')
             niveau=$(printf '%s' "$rowformatted" | jq -r '.niveau')
             description=$(printf '%s' "$rowformatted" | jq -r '.description')
-            echo -e "$nom;$description;$niveau;$succes;$commentaire" >> "$5"
+            echo -e "$id;$nom;$description;$niveau;$succes;$commentaire" >> "$5"
         fi
     done
 }
