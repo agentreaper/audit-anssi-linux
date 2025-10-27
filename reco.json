@@ -80,8 +80,15 @@
     {
         "id": 8.5,
         "niveau": 2,
+        "categorie":"automatisée",
         "nom": "Actver le renforcement de la mémoire dynamique",
         "description": "Dans la continuité de la recommandation 8.4, il est important d'activer les tests de cohérence des métadonnées, l'ajout de la zone rouge sur chaque objet et le poisonning des objets et du padding"
+    },
+    {
+        "id": 8.6,
+        "niveau": 2,
+        "nom": "Activer les contremesures spectre V2",
+        "description": "De nombreux processeurs intels disposent d'un défaut dans leur architecture permettant l'exploitation de la faille spectre V2, qui utilise l'execution spéculative à de mauvaises fins"
     }
 
 ]
