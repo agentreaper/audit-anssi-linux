@@ -4,10 +4,10 @@ function audit_general(){
     jsonfile="$1"
     csvfile="$2"
     if [ -z "$jsonfile" ] || [ ! -f "$jsonfile" ]; then
-        echo "Usage: $0 general <reco.json>"
+        echo "Usage: $0 general <fichier json de recommandation> <fichier csv de rapport>"
         return 1
     fi
-
+    remake_header $csvfile
     jq -r '.[] | @base64' "$jsonfile" | while IFS= read -r row; do
         rowformatted=$(printf '%s' "$row" | base64 --decode)
         id=$(printf '%s' "$rowformatted" | jq -r '.id')
@@ -25,6 +25,8 @@ function audit_general(){
     done
     echo "------ Audit général terminé ------"
 }
+source scripts/shortcut_functions.sh
+source traitement_csv.sh
 if [ "$1" = "general" ]; then
     audit_general "$2" "$3"
 elif [ "$1" = "specifique" ]; then
