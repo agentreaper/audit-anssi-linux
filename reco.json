@@ -176,7 +176,22 @@
         "categorie": "automatisée", 
         "nom" : "Désactiver les combinaisons de touches magiques",
         "description": "Les combinaisons de touches magiques sont une combinaisons de saisies clavier permettant d'envoyer des instruction directement dans le kernel, même en cas de freeze"
+    },
+    {
+        "id": 9.8,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "restreindre le BPF",
+        "description": "Le BPF (Berkeley Packet Filter) est un ensemble de programmes déclenchés via des fonctions noyau ou des appels système"
+    },
+    {
+        "id": 9.9,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Activer le kernel panic on oops",
+        "description": "Cette option provoque un kernel panic dès qu'un comportement inatendu est detecté"
     }
+    
     
 
 ]
