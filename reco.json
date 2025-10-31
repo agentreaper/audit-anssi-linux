@@ -127,6 +127,56 @@
         "categorie": "automatisée", 
         "nom" : "Fixer le HWRNG à 500",
         "description": "Cette opération a pour effet d'augmenter la confiance dans le générateur de nombre pseudos-aléatoires. Les performances  du système et des outils cryptographiques s'en voient augmentées"
+    },
+    {
+        "id": 9.1,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Restreindre le buffer dmesg",
+        "description": "Le buffer dmesg contient les messages directement émis par le kernel. Son accès doit être restreint car il donne beaucoup d'information sur le fonctionnement du système visé"
+    },
+    {
+        "id": 9.2,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Restreindre l'accès aux adresses noyau",
+        "description": "Certaines interfaces comme /proc permettent de voir les adresses noyaux des processus. Ici, plus aucun programme n'aura accès à cet information"
+    },
+    {
+        "id": 9.3,
+        "niveau":2,
+        "categorie": "manuelle", 
+        "nom" : "Définir le nombre maximum de processus du système",
+        "description": "Cette recommandation est parfaitement oubliable car il est très difficile de définir un nombre pertinent qui accroit la sécurité sans pour autant impacter les performances"
+    },
+    {
+        "id": 9.4,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Limiter l'utilisation du sous-système perf",
+        "description": "Le sous-système perf est utilisé par linux pour surveiller les métriques de la machine. Ici, on limite sa consommation de ressources et les utilisateurs"
+    },
+    {
+        "id": 9.5,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver le kernel profiling",
+        "description": "Le kernel profiling permet de voir en temps réél les performances du noyau dans le but de les optimiser. Seuls les utilisateurs avec la capability CAP_SYS_ADMIN gardent l'accès"
+    },
+    {
+        "id": 9.6,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Activer l'ASLR",
+        "description": "L'ASLR (Address Space Layout Randomizer) rend aléatoire les adresses mémoire des processus pour rendre plus difficile l'exploitation de failles mémoire"
+    },
+    {
+        "id": 9.7,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver les combinaisons de touches magiques",
+        "description": "Les combinaisons de touches magiques sont une combinaisons de saisies clavier permettant d'envoyer des instruction directement dans le kernel, même en cas de freeze"
     }
+    
 
 ]
