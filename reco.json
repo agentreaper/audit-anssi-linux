@@ -190,8 +190,113 @@
         "categorie": "automatisée", 
         "nom" : "Activer le kernel panic on oops",
         "description": "Cette option provoque un kernel panic dès qu'un comportement inatendu est detecté"
+    },
+    {
+        "id": 10,
+        "niveau": 3,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver les chargement de modules noyau",
+        "description": "A noter que même si cette option est activée, il est possible de répertorier des modules qui seront quand même chargés dans /etc/modules/ ou /etc/modules-load.d/"
+    },
+    {
+        "id": 11,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Activer Yama",
+        "description": "Yama est un LSM (Linux Security Module) très puissant et standard"
+    },
+    {
+        "id": 12.1,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Limiter la dispertion du JIT",
+        "description": "le JIT (Just In Time) est un élément du système lié à plusieurs faimmes de sécurité",
+        "impact_performances": "Les performances de la machine peuvent baisser avec cette option"
+    },
+    {
+        "id": 12.2,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver le routage des interfaces",
+        "description": "Yama est un LSM (Linux Security Module) très puissant et standard"
+    },
+    {
+        "id": 12.3,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver l'accès local depuis l'extérieur",
+        "description": "Cette option empêche la connextion à un service ayant comme source 127.0.0.0/8"
+    },
+    {
+        "id": 12.4,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver le traitement de paquets de type ICMP redirect",
+        "description": "Les paquets de type ICMP redirect sont utilisées dans des attaques visant à intercepter le trafic réseau d'une machine"
+    },
+    {
+        "id": 12.5,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Retirer la prise en compte des paquets source-routed",
+        "description": "Les paquets source-routed permettent à l'expéditeur de spécifier le chemin que le paquet doit prendre à travers le réseau"
+    },
+    {
+        "id": 12.6,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver la gestion de la table ARP",
+        "description": "Cette option interdit de répondre à une interface X avec les informations d'une autre interface Y"
+    },
+    {
+        "id": 12.8,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver le routage de paquets provenant de la boucle locale",
+        "description": "Tous les paquets de 127.0.0.0/8 ne seront pas émis sur une interface réseau"
+    },
+    {
+        "id": 12.9,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver le traitement des sollicitations de type gratuitous ARP",
+        "description": "Cette option permet de se prémunir contre les attaques de type arp poisoning mais ne marche que si plusieurs proxys ARP sont en fonctionnement",
+        "impact_performances": "Cette option ne doit pas être activée dans un contexte de haute disponibilité"
+    },
+    {
+        "id": 12.10,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Activer la double vérification de paquets entrants et sortants",
+        "description": "Une vérification est fait sur l'interface d'arrivée et de retour"
+    },
+    {
+        "id": 12.11,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Bloquer l'envoi des paquets ICMP redirect",
+        "description": "La valeur peut rester à 1 dans le cadre d'un routeur. Un equipement terminal n'a pas de raison de recevoir un flux dont il n'est pas destinataire"
+    },
+    {
+        "id": 12.12,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Activer la norme RFC 1122",
+        "description": "La norme RFC 1122 est la norme standardisant le format des paquets reçus et envoyés par la machine"
+    },
+    {
+        "id": 12.13,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Activer la norme RFC 1337",
+        "description": "La norme RFC 1337 permet de lutter contre les attaques de type TIME_WAIT assassination, qui consiste à provoquer des erreurs pas superposition de segments et desynchronisation des flux"
+    },
+    {
+        "id": 12.14,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Activer l'utilisation des SYN cookies",
+        "description": "Les SYN cookies permettent de lutter contre les attaques de type SYN flood. Ce sont un choix de numéros de séquence initial lors d'une demande de connexion TCP. Les requêtes semi-ouvertes voient leur état sauvegarder dans le numéro de séquence initial"
     }
-    
-    
 
 ]
