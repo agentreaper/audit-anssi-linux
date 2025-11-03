@@ -297,6 +297,41 @@
         "categorie": "automatisée", 
         "nom" : "Activer l'utilisation des SYN cookies",
         "description": "Les SYN cookies permettent de lutter contre les attaques de type SYN flood. Ce sont un choix de numéros de séquence initial lors d'une demande de connexion TCP. Les requêtes semi-ouvertes voient leur état sauvegarder dans le numéro de séquence initial"
+    },
+    {
+        "id": 13,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver le plan ipv6",
+        "description": "Si le plan ipv6 ne sert pas, autant le désactiver"
+    },
+    {
+        "id": 14.1,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Désactiver les coredumps pour setuid",
+        "description": "il est possible de rajouter CONFIG_COREDUMP=n pour désactiver tous les coredumps"
+    },
+    {
+        "id": 14.2,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Interdire l'ouverture des fichiers FIFO et des fichiers qui n'appartiennent pas à l'utilisateur initial",
+        "description": "Les fichiers FIFO sont utilisées pour la communication entre processus. Ils peuvent être utilisés par des attaquants pour intercepter des données sensibles"
+    },
+    {
+        "id": 14.3,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Restreindre la creation de liens symboliques aux fichiers dont l'utilisateur est propriétaire",
+        "description": "Cette restriction sert à lutter contre les failles time on check / time on use"
+    },
+    {
+        "id": 14.4,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Restreindre la creation de liens durs aux fichiers dont l'utilisateur est propriétaire",
+        "description": "Ici, on restreint les coredumps aux seuls utilisateurs avec la capability CAP_SYS_ADMIN"
     }
 
 ]
