@@ -332,6 +332,243 @@
         "categorie": "automatisée", 
         "nom" : "Restreindre la creation de liens durs aux fichiers dont l'utilisateur est propriétaire",
         "description": "Ici, on restreint les coredumps aux seuls utilisateurs avec la capability CAP_SYS_ADMIN"
+    },
+    {
+        "id": 28,
+        "niveau": 2,
+        "categorie": "manuelle", 
+        "nom" : "respecter le partitionnement standard",
+        "description": "Les mountpoints suivants doivent être présents: / /boot /opt /tmp /srv /home /proc /var /var/log /var/tmp"
+    },
+    {
+        "id": 29,
+        "niveau": 3,
+        "categorie": "automatisée", 
+        "nom" : "Restreindre l'accès au dossier /boot",
+        "description": "seul root doit avoir accès au dossier /boot pour des raisons de sécurité"
+    },
+    {
+        "id": 30,
+        "niveau": 1,
+        "categorie": "manuelle", 
+        "nom" : "Désactiver les compte utilisateurs inutilisés",
+        "description": "Les mountpoints suivants doivent être présents: / /boot /opt /tmp /srv /home /proc /var /var/log /var/tmp"
+    },
+    {
+        "id": 31,
+        "niveau": 1,
+        "categorie": "manuelle", 
+        "nom" : "Utiliser des mots de passe forts",
+        "description": "Les mots de passe doivent avoir une longueur minimale de 12 caractères et contenir des majuscules, des minuscules, des chiffres et des caractères spéciaux."
+    },
+    {
+        "id": 32,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "Expirer les sessions utilisateurs locales",
+        "description": "Il faut ajouter TMOUT=N avec N le nombre de secondes d'inactivité avant expiration dans le bashrc"
+    },
+    {
+        "id": 33,
+        "niveau": 2,
+        "categorie": "manuelle", 
+        "nom" : "Assurer l'imputabilité des actions d'administration",
+        "description": "chaque admin doit avoir un ou plusieurs comptes nominatifs dédiés (local ou distant) et ne jamais utiliser le compte root. Les secrets d'authentification doivent être différents. Le compte root doit être désactivé"
+    },
+    {
+        "id": 34,
+        "niveau": 2,
+        "categorie": "manuelle", 
+        "nom" : "Les comptes de services doivent être désactivés",
+        "description": "Les comptes de service ne doivent pas permettre de connexion interactive"
+    },
+    {
+        "id": 35,
+        "niveau": 2,
+        "categorie": "manuelle", 
+        "nom" : "Utiliser des comptes de service dédiés",
+        "description": "Chaque service métier doit avoir son propre compte système dédié."
+    },
+    {
+        "id": 36,
+        "niveau": 3,
+        "categorie": "manuelle", 
+        "nom" : "Modifier la valeur de umask par défaut",
+        "description": "La valeur à mettre en place est 0077. Umask est la valeur par défaut de la création de nouveaux fichiers sur la machine"
+    },
+    {
+        "id": 37,
+        "niveau": 3,
+        "categorie": "manuelle", 
+        "nom" : "Utiliser les fonctionnalités de contrôle d'accès obligatoire (MAC)",
+        "description": "Les DAC (Discretionary Access Control) sont le mode de fonctionnement basique de linux. Le MAC (Mandatory Access Control) est un aujout au DAC avec un meilleur cloisonnement et une meilleure sécurité. Pour se faire, on peut utiliser SELinux"
+    },
+    {
+        "id": 38,
+        "niveau": 3,
+        "categorie": "automatisée", 
+        "nom" : "Créer un groupe dédié à l'utilisation de sudo",
+        "description": "A noter qu'en cas de mise à jour du paquet sudo, cette configuration a des chances de sauter. Il faut donc penser à vérifier après chaque mise à jour"
+    },
+    {
+        "id": 39,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "modifier les directivers de configuration sudo",
+        "description": "Les mots de passe doivent avoir une longueur minimale de 12 caractères et contenir des majuscules, des minuscules, des chiffres et des caractères spéciaux."
+    },
+    {
+        "id": 40,
+        "niveau": 2,
+        "categorie": "manuelle", 
+        "nom" : "Utiliser des utilisateurs non privilégiés pour les commandes sudo",
+        "description": "Les utilisateurs cibles doivent autant que possible être des utilisateurs non privilégiés"
+    },
+    {
+        "id": 41,
+        "niveau": 3,
+        "categorie": "manuelle", 
+        "nom" : "Limiter l'utilisation des commandes nécessitant la directive EXEC",
+        "description":"Les commandes nécessitant l'éxecution d'un sous-processus EXEC doivent être listées et réduites au maximum"
+    },
+    {
+        "id": 42,
+        "niveau": 2,
+        "categorie": "manuelle", 
+        "nom" : "Bannir les négations dans les spécifications de commandes sudo",
+        "description": "L'utilisation de la négation '!' dans les spécifications de commandes sudo peut introduire des failles de sécurité en permettant des contournements inattendus."
+    },
+    {
+        "id": 43,
+        "niveau": 2,
+        "categorie": "automatisée", 
+        "nom" : "modifier les directivers de configuration sudo",
+        "description": "Les mots de passe doivent avoir une longueur minimale de 12 caractères et contenir des majuscules, des minuscules, des chiffres et des caractères spéciaux."
+    },
+    {
+        "id": 44,
+        "niveau": 2,
+        "categorie": "manuelle", 
+        "nom" : "Editer les fichiers de manière sécurisée avec sudo",
+        "description": "La modification d'un fichier texte avec sudo doit se faire via la commande sudoedit afin d'éviter l'execution de programmes malveillants"
+    },
+    {
+        "id": 45,
+        "niveau": 3,
+        "categorie": "automatisée", 
+        "nom" : "les profils de sécurité AppArmor doivent être en mode enforcing par défaut",
+        "description": "la commande aa-status permet de vérifier le mode des profils AppArmor"
+    },
+    {
+        "id": 46,
+        "niveau": 4,
+        "categorie": "automatisée", 
+        "nom" : "Activer la politique SELinux avec la politique targeted",
+        "description": "Les mots de passe doivent avoir une longueur minimale de 12 caractères et contenir des majuscules, des minuscules, des chiffres et des caractères spéciaux."
+    },
+    {
+        "id": 47,
+        "niveau": 4,
+        "categorie": "manuelle", 
+        "nom" : "Confiner les utilisateurs interactifs avec SELinux",
+        "description": "Les utilisateurs interactifs doivent être confinés dans des domaines SELinux restreints pour limiter leur accès aux ressources système."
+    },
+    {
+        "id": 48,
+        "niveau": 4,
+        "categorie": "manuelle", 
+        "nom" : "Paramétrer les variables SELinux",
+        "description": "Les processus ne doivent pas pouvoir rendre leur heap executable, ni avoir de zone mémoire en écriture ou en éxecution, ni rendre leur stack executable, ni pouvoir appliquer de changement dynamique sur les modules. Le role sysadmin ne doit pas être accessible via ssh"
+    },
+    {
+        "id": 49,
+        "niveau": 4,
+        "categorie": "manuelle", 
+        "nom" : "Installer des outils de deboguage SELinux",
+        "description": "Utiliser les services setroubleshootd et les paquets setroubleshoot, setroubleshoot-server et setroubleshoot-plugins"
+    },
+    {
+        "id": 50,
+        "niveau": 2,
+        "categorie": "manuelle", 
+        "nom" : "Restreindre les droits d'accès aux fichiers et répertoires sensibles",
+        "description": "Les fichiers ou répertoires sensibles doivent avoir root en propriétaire. Si un utilisateur doit avoir accès aux fichiers, ce dernier doit en être le propriétaire et être dans un groupe dédié qui aura un accès en lecture seule. Le reste des utilisateurs ne doit avoir aucun droit"
+    },
+    {
+        "id": 51,
+        "niveau": 3,
+        "categorie": "manuelle", 
+        "nom" : "Changer les secrets et droit d'accès à l'installation",
+        "description": "Tous les fichiers sensibles du système ou secret lié à l'authentification doit être changé dès l'installation"
+    },
+    {
+        "id": 52,
+        "niveau": 2,
+        "categorie": "manuelle", 
+        "nom" : "Restreindre les accès aux sockets et aux pipes nommés",
+        "description": ""
+    },
+    {
+        "id": 53,
+        "niveau": 1,
+        "categorie": "automatisée", 
+        "nom" : "Eviter les fichiers ou répertoires sans utilisateur ou sans groupe connu",
+        "description": "Ces fichiers doivent se trouver un propriétaire ou être supprimés"
+    },
+    {
+        "id": 54,
+        "niveau": 1,
+        "categorie": "automatisée", 
+        "nom" : "Activer le sticky bit sur les répertoires inscriptible",
+        "description": "Le répertoire /proc n'est pas concerné par cette recommandation car les fichiers sont constamment supprimés et recréés"
+    },
+    {
+        "id": 55,
+        "niveau": 2,
+        "categorie": "manuelle", 
+        "nom" : "Séparer les répertoires temporaires des utilisateurs",
+        "description": "Chaque utilisateur doit posséder son propre répertoire temporaire et en disposer exclusivement."
+    },
+    {
+        "id": 56,
+        "niveau": 1,
+        "categorie": "automatisée", 
+        "nom" : "Eviter l'usage d'éxecutables avec des droits spéciaux setiud et setgid",
+        "description": "Seuls des logiciels de confiance venant de distributeurs de paquets peuvent avoir des droit spéciaux"
+    },
+    {
+        "id": 57,
+        "niveau": 3,
+        "categorie": "manuelle", 
+        "nom" : "Eviter l'usage d'éxecutables avec des droits spéciaux setiud root et setgid root",
+        "description": "Cette recommandation est difficile à instaurer car des droits spéciaux peuvent être réinstaurés après chaque mise à jour"
+    },
+    {
+        "id": 58,
+        "niveau": 1,
+        "categorie": "manuelle", 
+        "nom" : "N'installer que les paquets strictement nécessaires",
+        "description": "Tous les paquets doivent se voir justifiés ou être désinstallés"
+    },
+    {
+        "id": 59,
+        "niveau": 1,
+        "categorie": "manuelle", 
+        "nom" : "Utiliser des dépots de confiance",
+        "description": "Sauf exception, seuls les dépots de l'entreprise ou de la distribution linux sont autorisés"
+    },
+    {
+        "id": 60,
+        "niveau": 3,
+        "categorie": "manuelle", 
+        "nom" : "Utiliser des dépôts de paquets durcis",
+        "description": "Si la distribution propose des dépôts de paquets durcis, il est recommandé de les utiliser, car ces dernies appliquent des contraintes de sécurité plus importantes"
+    },
+    {
+        "id": 61,
+        "niveau": 1,
+        "categorie": "manuelle", 
+        "nom" : "Effectuer des mises à jour régulières",
+        "description": "Pour cela il est recommandé de mettre en place un flux RSS et de faire s'abonner les responsables infra au flux CERT FR"
     }
-
 ]
