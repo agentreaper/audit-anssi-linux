@@ -33,7 +33,8 @@ function saisieClavier(){
 }
 
 function auditGeneral(){
-    bash ./audit.sh "general"
+    timestamp=$(date +"%Y%m%d_%H%M%S")
+    bash ./audit.sh "general" "reco.json" > "audit_general_${timestamp}.csv"
 }
 function auditSpecifique(){
     read -p "Entrez l'ID de la recommandation à auditer : " recId

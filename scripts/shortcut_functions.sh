@@ -1,7 +1,7 @@
 function sysctl_check(){
     files=("/etc/sysctl.d/" "/run/sysctl.d/" "/usr/local/lib/sysctl.d/" "/usr/lib/sysctl.d/" "/lib/sysctl.d/")
     for element in ${files[@]}; do
-        if grep -qEr "\b($1)\b" $element; then
+        if grep -qEr "\b($1)\b" $element 2>/dev/null; then
             echo "$1 trouvé"
             return 0
         else
