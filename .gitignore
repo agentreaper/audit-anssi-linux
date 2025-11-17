@@ -1,2 +1,5 @@
 manual.json
 *.csv
+*.html
+*xls
+*.xlsx

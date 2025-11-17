@@ -1,4 +1,5 @@
 function audit_general(){
+    source sripts/shortcut_functions.sh
     clear
     echo "------ Audit général en cours ------"
     jsonfile="$1"
@@ -11,13 +12,22 @@ function audit_general(){
     jq -r '.[] | @base64' "$jsonfile" | while IFS= read -r row; do
         rowformatted=$(printf '%s' "$row" | base64 --decode)
         id=$(printf '%s' "$rowformatted" | jq -r '.id')
+        categorie=$(printf '%s' "$rowformatted" | jq -r '.categorie')
+        
         if [ -n "$id" ]; then
-            script="scripts/anssi-${id}.sh"
-            if [ -f "$script" ]; then
-                echo "Traitement de la recommandation ID: $id"
-                bash "$script" $jsonfile $csvfile
+            # Si la recommandation est manuelle et que MANUAL=true, l'ajouter avec résultat "inconnu"
+            if [ "$categorie" = "manuelle" ] && [ "$MANUAL" = "true" ]; then
+                echo "Ajout de la recommandation manuelle ID: $id avec résultat 'inconnu'"
+                ajouter_recommandation "$jsonfile" "$id" "Vérification manuelle requise" "inconnu" "$csvfile"
+            # Sinon, traiter normalement avec le script si disponible
             else
-                continue
+                script="scripts/anssi-${id}.sh"
+                if [ -f "$script" ]; then
+                    echo "Traitement de la recommandation ID: $id"
+                    bash "$script" $jsonfile $csvfile
+                else
+                    continue
+                fi
             fi
         else
             echo "Warning: entrée JSON sans id"
@@ -33,6 +43,7 @@ source traitement_csv.sh
 TYPE=""
 OUTPUTCSV=""
 RECO=""
+MANUAL=false
 
 while [[ $# -gt 0 ]]; do
     case $1 in
@@ -47,6 +58,10 @@ while [[ $# -gt 0 ]]; do
         --reco)
             RECO="$2"
             shift 2
+            ;;
+        --manual)
+            MANUAL=true
+            shift
             ;;
         *)
             echo "Option inconnue: $1"

@@ -10,12 +10,13 @@ function ajouter_recommandation(){
             nom=$(printf '%s' "$rowformatted" | jq -r '.nom')
             niveau=$(printf '%s' "$rowformatted" | jq -r '.niveau')
             description=$(printf '%s' "$rowformatted" | jq -r '.description')
-            echo -e "$id;$nom;$description;$niveau;$succes;$commentaire" >> "$5"
+            categorie=$(printf '%s' "$rowformatted" | jq -r '.categorie')
+            echo -e "$id;$nom;$description;$niveau;$categorie;$succes;$commentaire" >> "$5"
         fi
     done
 }
 function remake_header(){
-    header="id;nom;description;niveau;succes;commentaire"
+    header="id;nom;description;niveau;categorie;succes;commentaire"
     if test -f "$1"; then
         sed -i "1s/.*/$header/" "$1"
         head -n 1 $1

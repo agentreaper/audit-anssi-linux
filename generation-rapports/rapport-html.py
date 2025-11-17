@@ -23,6 +23,8 @@ def generer_html(csv_path):
     total = len(resultats)
     succes = sum(1 for r in resultats if r['succes'].lower() == 'true')
     echecs = total - succes
+    automatisees = sum(1 for r in resultats if r.get('categorie', '').lower() == 'automatisée')
+    manuelles = sum(1 for r in resultats if r.get('categorie', '').lower() == 'manuelle')
     
     # Générer le HTML
     html = f"""<!DOCTYPE html>
@@ -171,6 +173,8 @@ def generer_html(csv_path):
         .badge.niveau-4 {{ background: #da3633; color: white; }}
         .badge.success {{ background: #238636; color: white; }}
         .badge.error {{ background: #da3633; color: white; }}
+        .badge.auto {{ background: #7c3aed; color: white; }}
+        .badge.manual {{ background: #f59e0b; color: white; }}
         
         .result-description {{
             color: #8b949e;
@@ -207,6 +211,17 @@ def generer_html(csv_path):
             </div>
         </div>
         
+        <div class="stats">
+            <div class="stat-box" style="background: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);">
+                <h2>{automatisees}</h2>
+                <p>Tests automatisés</p>
+            </div>
+            <div class="stat-box" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                <h2>{manuelles}</h2>
+                <p>Tests manuels</p>
+            </div>
+        </div>
+        
         <div class="filters">
             <div class="filter-group">
                 <label>Statut:</label>
@@ -222,6 +237,12 @@ def generer_html(csv_path):
                 <button onclick="filtrerNiveau('3')" class="niveau-3" id="btn-niveau-3">Niveau 3</button>
                 <button onclick="filtrerNiveau('4')" class="niveau-4" id="btn-niveau-4">Niveau 4</button>
             </div>
+            <div class="filter-group">
+                <label>Catégorie:</label>
+                <button onclick="filtrerCategorie('all')" class="active" id="btn-cat-all">Toutes</button>
+                <button onclick="filtrerCategorie('automatisée')" id="btn-cat-auto">Automatisées</button>
+                <button onclick="filtrerCategorie('manuelle')" id="btn-cat-manual">Manuelles</button>
+            </div>
         </div>
         
         <div id="resultats">
@@ -233,13 +254,17 @@ def generer_html(csv_path):
         status_class = 'success' if is_success else 'error'
         status_text = 'Conforme' if is_success else 'Non conforme'
         niveau_class = f"niveau-{r['niveau']}"
+        categorie = r.get('categorie', 'automatisée').lower()
+        categorie_badge = 'Automatisée' if categorie == 'automatisée' else 'Manuelle'
+        categorie_class = 'auto' if categorie == 'automatisée' else 'manual'
         
         html += f"""
-            <div class="result {status_class}" data-status="{status_class}" data-niveau="{r['niveau']}">
+            <div class="result {status_class}" data-status="{status_class}" data-niveau="{r['niveau']}" data-categorie="{categorie}">
                 <div class="result-header">
                     <div>
                         <span class="result-id">#{r['id']}</span>
                         <span class="badge {niveau_class}">Niveau {r['niveau']}</span>
+                        <span class="badge {categorie_class}">{categorie_badge}</span>
                         <span class="badge {status_class}">{status_text}</span>
                     </div>
                 </div>
@@ -257,6 +282,7 @@ def generer_html(csv_path):
     <script>
         let filtreStatut = 'all';
         let filtreNiveau = 'all';
+        let filtreCategorie = 'all';
         
         function appliquerFiltres() {
             const resultats = document.querySelectorAll('.result');
@@ -264,8 +290,9 @@ def generer_html(csv_path):
             resultats.forEach(result => {
                 const matchStatut = filtreStatut === 'all' || result.dataset.status === filtreStatut;
                 const matchNiveau = filtreNiveau === 'all' || result.dataset.niveau === filtreNiveau;
+                const matchCategorie = filtreCategorie === 'all' || result.dataset.categorie === filtreCategorie;
                 
-                if (matchStatut && matchNiveau) {
+                if (matchStatut && matchNiveau && matchCategorie) {
                     result.style.display = 'block';
                 } else {
                     result.style.display = 'none';
@@ -287,10 +314,21 @@ def generer_html(csv_path):
         function filtrerNiveau(niveau) {
             filtreNiveau = niveau;
             
-            document.querySelectorAll('.filter-group:last-child button').forEach(btn => {
+            document.querySelectorAll('.filter-group:nth-child(2) button').forEach(btn => {
                 btn.classList.remove('active');
             });
             document.getElementById('btn-niveau-' + niveau).classList.add('active');
+            
+            appliquerFiltres();
+        }
+        
+        function filtrerCategorie(categorie) {
+            filtreCategorie = categorie;
+            
+            document.querySelectorAll('.filter-group:nth-child(3) button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('btn-cat-' + (categorie === 'all' ? 'all' : (categorie === 'automatisée' ? 'auto' : 'manual'))).classList.add('active');
             
             appliquerFiltres();
         }
